@@ -17,6 +17,8 @@ services:
     ports:
       - "5432:5432"
     restart: always
+    volumes:
+      - ../lab3-back/db:/docker-entrypoint-initdb.d
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
