@@ -1,7 +1,7 @@
 services:
   backend:
     build:
-      context: ../lab3-back
+      context: ../db-lab3
     container_name: lab3-backend
     ports:
       - "8080:8080"
@@ -18,7 +18,7 @@ services:
       - "5432:5432"
     restart: always
     volumes:
-      - ../lab3-back/db:/docker-entrypoint-initdb.d
+      - ../db-lab3/db:/docker-entrypoint-initdb.d
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -37,7 +37,7 @@ services:
       dockerfile: Dockerfile
     container_name: lab3-frontend
     ports:
-      - "80:80"
+      - "3000:80"
     networks:
       - app-network
 
